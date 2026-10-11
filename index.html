@@ -1,39 +1,332 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi primera página</title>
-    <link rel="stylesheet" href="./style.css">
+    <meta name="description" content="Sitio personal de Cristian Hernández: tecnología, triatlón y emprendimiento.">
+    <title>Cristian Hernández | Tecnología, Triatlón y Emprendimiento</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <h1>Mi primer pagína web</h1>
-        <p>Bienvenido a mi sitio</p>
+
+    <header class="site-header">
+        <a class="brand" href="#inicio" aria-label="Ir al inicio">
+            <span class="brand-mark">CRH</span>
+            <span class="brand-name">Cristian Rodolfo Hernández</span>
+        </a>
+
+        <button class="menu-toggle"
+                type="button"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+                aria-controls="main-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+            <a href="#inicio">Inicio</a>
+            <a href="#profesional">Profesional</a>
+            <a href="#triatlon">Triatlón</a>
+            <a href="#emprendimiento">Emprendimiento</a>
+            <a href="#contacto" class="nav-cta">Contacto</a>
+        </nav>
     </header>
 
-    <nav>
-         <a href="#sobre-mi">Sobre mí</a>
-         <a href="#proyectos">Mis proyectos</a>
-         <a href="https://www.google.com">Google</a>    
-    </nav>
+    <main>
 
-    <section id="sobre-mi">
-         <h2>Sombre mí</h2>
-         <p>Soy un estudiante de programación web</p>
-    </section>
+        <!-- PRINCIPAL -->
+        <section class="hero section" id="inicio">
+            <div class="hero-copy reveal">
+                <p class="eyebrow">PROJECT & SALES MANAGER · TRIATLETA · EMPRENDEDOR</p>
 
-    <section id="proyectos">
-        <h2>Proyectos</h2>
-        <p>Estos sons mis proyectos</p>
-    </section>
+                <h1>
+                    Construyo sistemas.<br>
+                    Entreno personas.<br>
+                    Ejecuto negocios.
+                </h1>
 
-    <footer>
-        <p>Mi primer página web</p>
-        <a href="Contacto"></a>
-    </footer>    
+                <p class="hero-description">
+                    Mi misión conecta transformación tecnológica, alto rendimiento
+                    y operación empresarial.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="button button-dark" href="#experiencia">
+                        Conoce mi trayectoria
+                    </a>
+
+                    <a class="button button-light" href="#contacto">
+                        Hablemos
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-photo reveal">
+                <!--
+                    Foto.
+                -->
+                <img
+                    src="img/perfil.png"
+                    alt="Fotografía de Cristian Hernández"
+                    id="profile-photo"
+                >
+
+                <div class="photo-fallback" id="photo-fallback" aria-hidden="true">
+                    <span>CH</span>
+                    <p>Agrega tu fotografía en <strong>img/perfil.jpg</strong></p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- TRES FACETAS -->
+        <section class="section facets" aria-labelledby="facetas-title">
+            <div class="section-heading reveal">
+                <p class="eyebrow">TRES FACETAS, UNA MISMA FORMA DE TRABAJAR</p>
+                <h2 id="facetas-title">Estrategia, disciplina y ejecución.</h2>
+            </div>
+
+            <div class="facet-grid">
+                <article class="facet-card reveal">
+                    <span class="card-number">01</span>
+                    <h3>Experiencia laboral</h3>
+                    <p>
+                        Implementación de ERP, WMS, CRM y diferentes sistemas;
+                        gestión de proyectos tecnológicos y ventas consultivas de
+                        soluciones SaaS, IA aplicada y agentes de IA.
+                    </p>
+                    <a href="#experiencia">Explorar experiencia →</a>
+                </article>
+
+                <article class="facet-card reveal">
+                    <span class="card-number">02</span>
+                    <h3>Triatlón y coaching</h3>
+                    <p>
+                        Más de una década construyendo rendimiento desde la
+                        constancia, los datos y una planificación individualizada.
+                        También acompaño a atletas a cumplir sus objetivos.
+                    </p>
+                    <a href="#triatlon">Explorar triatlón →</a>
+                </article>
+
+                <article class="facet-card reveal">
+                    <span class="card-number">03</span>
+                    <h3>Emprendimiento</h3>
+                    <p>
+                        Operación de una empresa de transporte: flota, logística,
+                        mantenimiento, servicio B2B y toma de decisiones con impacto
+                        real en costos y operación.
+                    </p>
+                    <a href="#emprendimiento">Explorar negocio →</a>
+                </article>
+            </div>
+        </section>
+
+
+        <!-- EXPERIENCIA -->
+        <section class="section split-section" id="experiencia">
+            <div class="section-heading reveal">
+                <p class="eyebrow">EXPERIENCIA LABORAL</p>
+                <h2>Transformación tecnológica con enfoque de negocio.</h2>
+            </div>
+
+            <div class="experience-layout">
+                <div class="purpose-card reveal">
+                    <p class="small-label">PROPÓSITO</p>
+                    <h3>
+                        Elevar el potencial de las empresas mexicanas con tecnología.
+                    </h3>
+                    <p>
+                        Me interesa estar donde la tecnología deja de ser una promesa
+                        y se convierte en valor real, crecimiento y mejores decisiones.
+                    </p>
+                </div>
+
+                <div class="timeline reveal">
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div>
+                            <p class="small-label">IMPLEMENTACIÓN</p>
+                            <h3>ERP, WMS, CRM y sistemas empresariales</h3>
+                            <p>
+                                Gestión de alcance, procesos, usuarios, adopción
+                                y seguimiento de proyectos tecnológicos.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div>
+                            <p class="small-label">PROJECT MANAGEMENT</p>
+                            <h3>Ejecución, coordinación y mejora de procesos</h3>
+                            <p>
+                                Traducción de necesidades de negocio en acciones,
+                                entregables y resultados medibles.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div>
+                            <p class="small-label">SAAS E INTELIGENCIA ARTIFICIAL</p>
+                            <h3>Venta consultiva y soluciones de IA</h3>
+                            <p>
+                                Desarrollo comercial de software, IA aplicada
+                                y agentes de IA orientados a resolver problemas reales.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- TRIATLÓN -->
+        <section class="section sports-section" id="triatlon">
+            <div class="sports-banner reveal">
+                <div>
+                    <p class="eyebrow">TRIATLÓN Y COACHING</p>
+                    <h2>El rendimiento también se diseña.</h2>
+                    <p>
+                        Mi enfoque combina experiencia como atleta, análisis de datos,
+                        estructura de entrenamiento y adaptación individual.
+                    </p>
+                </div>
+
+                <div class="sports-stat-grid">
+                    <div>
+                        <strong>+15</strong>
+                        <span>años en triatlón</span>
+                    </div>
+
+                    <div>
+                        <strong>3</strong>
+                        <span>disciplinas integradas</span>
+                    </div>
+
+                    <div>
+                        <strong>1</strong>
+                        <span>método adaptable</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coaching-grid">
+                <article class="simple-card reveal">
+                    <p class="small-label">ATLETA</p>
+                    <h3>Resultados que respaldan el proceso.</h3>
+                    <p>
+                        Triatlones de todas las distancias. Maratones & ultramaratones. Eventos de resistencia y de natación.
+                    </p>
+                </article>
+
+                <article class="simple-card reveal">
+                    <p class="small-label">ENTRENADOR</p>
+                    <h3>Planificar, medir, ajustar.</h3>
+                    <p>
+                        Diagnóstico, planificación, seguimiento y ajustes para acompañar
+                        al atleta desde su contexto real hasta su objetivo.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+
+        <!-- EMPRENDIMIENTO -->
+        <section class="section entrepreneurship-section" id="emprendimiento">
+            <div class="section-heading reveal">
+                <p class="eyebrow">EMPRENDIMIENTO</p>
+                <h2>Operar también es estrategia.</h2>
+            </div>
+
+            <div class="business-grid">
+                <div class="business-copy reveal">
+                    <h3>Empresa de transporte</h3>
+                    <p>
+                        Gestionar un negocio de transporte significa tomar decisiones
+                        todos los días: rutas, mantenimiento, disponibilidad de unidades,
+                        clientes, costos y continuidad operativa.
+                    </p>
+                    <p>
+                        Esta faceta complementa mi experiencia tecnológica porque me
+                        permite vivir de primera mano los problemas que después buscamos
+                        resolver con procesos, datos y tecnología.
+                    </p>
+                </div>
+
+                <div class="business-dashboard reveal">
+                    <div>
+                        <span>Operación</span>
+                        <strong>Logística B2B</strong>
+                    </div>
+
+                    <div>
+                        <span>Activos</span>
+                        <strong>Gestión de flota</strong>
+                    </div>
+
+                    <div>
+                        <span>Prioridad</span>
+                        <strong>Precisión en la entrega</strong>
+                    </div>
+
+                    <div>
+                        <span>Enfoque</span>
+                        <strong>Eficiencia y ahorro de costos</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CONTACTO -->
+        <section class="contact-section" id="contacto">
+            <div class="contact-copy reveal">
+                <p class="eyebrow eyebrow-light">CONTACTO</p>
+                <h2>¿Construimos algo?</h2>
+                <p>
+                    Tecnología, coaching, alianzas o negocios.
+                    Si alguno de estos mundos conecta contigo, hablemos.
+                </p>
+            </div>
+
+            <form class="contact-form reveal" id="contact-form">
+                <label>
+                    Nombre
+                    <input type="text" id="name" name="name" required>
+                </label>
+
+                <label>
+                    Correo
+                    <input type="email" id="email" name="email" required>
+                </label>
+
+                <label>
+                    Mensaje
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </label>
+
+                <button class="button button-light" type="submit">
+                    Enviar
+                </button>
+
+                <p class="form-status" id="form-status" aria-live="polite"></p>
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <span>© <span id="year"></span> Cristian Hernández</span>
+        <a href="#inicio">Volver arriba ↑</a>
+    </footer>
 
 </body>
-<script> src="./script.js"</script>
 </html>

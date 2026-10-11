@@ -1,0 +1,896 @@
+:root {
+    --black: #111111;
+    --charcoal: #2b2b2b;
+    --pastel-gray: #e9e9e7;
+    --soft-gray: #f6f6f4;
+    --mid-gray: #8d8d89;
+    --line: #d8d8d5;
+    --white: #ffffff;
+    --coral: #efa08f;
+
+    --page-width: 1180px;
+    --radius: 24px;
+    --shadow: 0 18px 45px rgba(17, 17, 17, 0.08);
+}
+
+
+/* =========================================================
+   1. RESET Y MODELO DE CAJA
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--black);
+    background: var(--white);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+
+/* =========================================================
+   2. NAVEGACIÓN CON FLEXBOX
+   ========================================================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    min-height: 78px;
+    padding: 0 4vw;
+
+    background: rgba(255, 255, 255, 0.94);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(12px);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-weight: 700;
+}
+
+.brand-mark {
+    display: grid;
+    place-items: center;
+
+    width: 42px;
+    height: 42px;
+
+    color: var(--white);
+    background: var(--black);
+    border-radius: 50%;
+}
+
+.brand-name {
+    letter-spacing: -0.02em;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.main-nav a {
+    position: relative;
+    font-size: 0.95rem;
+}
+
+.main-nav a:not(.nav-cta)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--coral);
+    transition: width 0.25s ease;
+}
+
+.main-nav a:not(.nav-cta):hover::after,
+.main-nav a:not(.nav-cta):focus-visible::after {
+    width: 100%;
+}
+
+.nav-cta {
+    padding: 10px 18px;
+    color: var(--white);
+    background: var(--black);
+    border-radius: 999px;
+}
+
+.menu-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin: 5px 0;
+    background: var(--black);
+}
+
+
+/* =========================================================
+   3. ELEMENTOS GENERALES
+   ========================================================= */
+
+.section {
+    width: min(var(--page-width), calc(100% - 40px));
+    margin: 0 auto;
+    padding: 110px 0;
+}
+
+.eyebrow,
+.small-label {
+    margin: 0 0 14px;
+    color: var(--mid-gray);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.eyebrow-light {
+    color: #cfcfcb;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+}
+
+h1 {
+    margin-bottom: 28px;
+    font-size: clamp(3rem, 7vw, 6.7rem);
+}
+
+h2 {
+    margin-bottom: 24px;
+    font-size: clamp(2.3rem, 4.5vw, 4.8rem);
+}
+
+h3 {
+    margin-bottom: 18px;
+    font-size: clamp(1.4rem, 2vw, 2rem);
+}
+
+.section-heading {
+    max-width: 820px;
+    margin-bottom: 60px;
+}
+
+.button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 48px;
+    padding: 0 22px;
+
+    border: 1px solid transparent;
+    border-radius: 999px;
+
+    font-weight: 700;
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(17, 17, 17, 0.12);
+}
+
+.button-dark {
+    color: var(--white);
+    background: var(--black);
+}
+
+.button-light {
+    color: var(--black);
+    background: var(--pastel-gray);
+}
+
+
+/* =========================================================
+   4. HERO CON CSS GRID
+   ========================================================= */
+
+.hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+    align-items: center;
+    gap: 70px;
+
+    min-height: calc(100vh - 78px);
+}
+
+.hero-description {
+    max-width: 680px;
+    margin-bottom: 34px;
+
+    color: var(--charcoal);
+    font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.hero-photo {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 610px;
+
+    background: var(--pastel-gray);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.hero-photo img {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+.photo-fallback {
+    position: absolute;
+    inset: 0;
+
+    display: none;
+    place-items: center;
+    align-content: center;
+
+    padding: 40px;
+    text-align: center;
+}
+
+.photo-fallback span {
+    margin-bottom: 16px;
+    font-size: 5rem;
+    font-weight: 700;
+}
+
+.photo-fallback p {
+    color: var(--mid-gray);
+}
+
+
+/* =========================================================
+   5. TARJETAS / GRID
+   ========================================================= */
+
+.facets {
+    border-top: 1px solid var(--line);
+}
+
+.facet-grid,
+.coaching-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.facet-card,
+.simple-card,
+.purpose-card {
+    padding: 34px;
+
+    background: var(--soft-gray);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+
+    transition:
+        transform 0.28s ease,
+        box-shadow 0.28s ease,
+        background-color 0.28s ease;
+}
+
+.facet-card:hover {
+    transform: translateY(-7px);
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.card-number {
+    display: inline-block;
+    margin-bottom: 55px;
+
+    color: var(--mid-gray);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.facet-card p,
+.simple-card p,
+.purpose-card p {
+    color: var(--charcoal);
+}
+
+.facet-card a {
+    display: inline-block;
+    margin-top: 18px;
+
+    font-weight: 700;
+    border-bottom: 2px solid var(--coral);
+}
+
+
+/* =========================================================
+   6. EXPERIENCIA
+   ========================================================= */
+
+.split-section {
+    border-top: 1px solid var(--line);
+}
+
+.experience-layout {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 60px;
+}
+
+.purpose-card {
+    align-self: start;
+    position: sticky;
+    top: 120px;
+
+    background: var(--pastel-gray);
+}
+
+.timeline {
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 9px;
+    top: 9px;
+    bottom: 9px;
+
+    width: 1px;
+    background: var(--line);
+}
+
+.timeline-item {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 38px 1fr;
+
+    padding-bottom: 50px;
+}
+
+.timeline-dot {
+    position: relative;
+    z-index: 1;
+
+    width: 19px;
+    height: 19px;
+    margin-top: 2px;
+
+    background: var(--pastel-gray);
+    border: 5px solid var(--white);
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px var(--line);
+}
+
+.timeline-dot.current {
+    background: var(--coral);
+}
+
+
+/* =========================================================
+   7. TRIATLÓN
+   ========================================================= */
+
+.sports-section {
+    border-top: 1px solid var(--line);
+}
+
+.sports-banner {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 50px;
+
+    padding: clamp(32px, 6vw, 70px);
+
+    background: var(--pastel-gray);
+    border-radius: var(--radius);
+}
+
+.sports-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: end;
+    gap: 20px;
+}
+
+.sports-stat-grid div {
+    padding-top: 20px;
+    border-top: 1px solid #c7c7c4;
+}
+
+.sports-stat-grid strong {
+    display: block;
+    font-size: clamp(2rem, 4vw, 3.7rem);
+    line-height: 1;
+}
+
+.sports-stat-grid span {
+    color: var(--mid-gray);
+    font-size: 0.84rem;
+}
+
+.coaching-grid {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 18px;
+}
+
+
+/* =========================================================
+   8. EMPRENDIMIENTO
+   ========================================================= */
+
+.entrepreneurship-section {
+    border-top: 1px solid var(--line);
+}
+
+.business-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.business-copy {
+    max-width: 650px;
+}
+
+.business-copy p {
+    color: var(--charcoal);
+    font-size: 1.1rem;
+}
+
+.business-dashboard {
+    padding: 12px 30px;
+
+    background: var(--soft-gray);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.business-dashboard > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+
+    padding: 24px 0;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.business-dashboard > div:last-child {
+    border-bottom: 0;
+}
+
+.business-dashboard span {
+    color: var(--mid-gray);
+}
+
+.business-dashboard strong {
+    text-align: right;
+}
+
+
+/* =========================================================
+   9. CONTACTO
+   ========================================================= */
+
+.contact-section {
+    display: grid;
+    grid-template-columns: 1fr 0.85fr;
+    gap: 80px;
+
+    padding: 100px max(4vw, calc((100vw - var(--page-width)) / 2));
+
+    color: var(--white);
+    background: var(--black);
+}
+
+.contact-copy {
+    max-width: 650px;
+}
+
+.contact-copy h2 {
+    color: var(--white);
+}
+
+.contact-copy p {
+    color: #d5d5d1;
+    font-size: 1.1rem;
+}
+
+.contact-form {
+    display: grid;
+    gap: 16px;
+}
+
+.contact-form label {
+    display: grid;
+    gap: 7px;
+
+    color: #d8d8d5;
+    font-size: 0.85rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px 15px;
+
+    color: var(--white);
+    background: #1b1b1b;
+    border: 1px solid #3c3c3c;
+    border-radius: 12px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--coral);
+    box-shadow: 0 0 0 3px rgba(239, 160, 143, 0.13);
+}
+
+.contact-form .button {
+    justify-self: start;
+    border: 0;
+}
+
+.form-status {
+    min-height: 1.4em;
+    margin: 0;
+    color: #d8d8d5;
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   10. FOOTER
+   ========================================================= */
+
+.site-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 28px 4vw;
+
+    color: var(--mid-gray);
+    background: var(--black);
+    border-top: 1px solid #303030;
+
+    font-size: 0.85rem;
+}
+
+.site-footer a:hover {
+    color: var(--white);
+}
+
+
+/* =========================================================
+   11. ANIMACIONES AL HACER SCROLL
+   ========================================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(22px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   12. DISEÑO RESPONSIVO - MEDIA QUERIES
+   ========================================================= */
+
+/* Tablet */
+@media (max-width: 980px) {
+
+    .hero,
+    .experience-layout,
+    .sports-banner,
+    .business-grid,
+    .contact-section {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: auto;
+        padding-top: 80px;
+    }
+
+    .hero-photo {
+        min-height: 560px;
+    }
+
+    .facet-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .purpose-card {
+        position: static;
+    }
+
+    .sports-stat-grid {
+        margin-top: 20px;
+    }
+}
+
+
+/* Móvil */
+@media (max-width: 720px) {
+
+    .site-header {
+        min-height: 68px;
+        padding: 0 20px;
+    }
+
+    .brand-name {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .main-nav {
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+
+        padding: 12px 20px 20px;
+
+        background: var(--white);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 16px 30px rgba(17, 17, 17, 0.07);
+    }
+
+    .main-nav.open {
+        display: flex;
+    }
+
+    .main-nav a {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .main-nav a::after {
+        display: none;
+    }
+
+    .nav-cta {
+        margin-top: 12px;
+        padding: 12px 16px !important;
+        text-align: center;
+        border-bottom: 0 !important;
+    }
+
+    .section {
+        width: min(100% - 32px, var(--page-width));
+        padding: 78px 0;
+    }
+
+    h1 {
+        font-size: clamp(2.8rem, 13vw, 4.6rem);
+    }
+
+    h2 {
+        font-size: clamp(2.2rem, 10vw, 3.5rem);
+    }
+
+    .hero {
+        gap: 44px;
+    }
+
+    .hero-photo {
+        min-height: 440px;
+        border-radius: 18px;
+    }
+
+    .facet-card,
+    .simple-card,
+    .purpose-card {
+        padding: 25px;
+        border-radius: 18px;
+    }
+
+    .experience-layout {
+        gap: 34px;
+    }
+
+    .sports-banner {
+        padding: 28px;
+        border-radius: 18px;
+    }
+
+    .sports-stat-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .coaching-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .business-grid {
+        gap: 36px;
+    }
+
+    .business-dashboard {
+        padding: 8px 20px;
+        border-radius: 18px;
+    }
+
+    .contact-section {
+        gap: 42px;
+        padding: 78px 20px;
+    }
+
+    .site-footer {
+        flex-direction: column;
+        padding: 24px 20px;
+    }
+}
+
+
+/* Pantallas muy pequeñas */
+@media (max-width: 420px) {
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .button {
+        width: 100%;
+    }
+
+    .business-dashboard > div {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .business-dashboard strong {
+        text-align: left;
+    }
+}
+
+
+
+
+/* =========================================================
+   13. ACENTOS CORAL
+   ========================================================= */
+
+.eyebrow {
+    color: var(--coral);
+}
+
+.main-nav a:hover {
+    color: var(--coral);
+}
+
+.facet-card:hover {
+    border-color: var(--coral);
+}
+
+.purpose-card {
+    border-left: 4px solid var(--coral);
+}
+
+.timeline-dot.current {
+    background: var(--coral);
+}
+
+.button-light:hover {
+    background: var(--coral);
+}
+
+
+/* Respeta usuarios que prefieren menos animación */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
