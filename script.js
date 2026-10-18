@@ -1,3 +1,6 @@
+// FASE 4: saludo visible en la consola del navegador
+console.log("¡Hola! Bienvenido a mi sitio web personal. Soy Cristian Hernández.");
+
 document.addEventListener("DOMContentLoaded", () => {
 
     /* 
@@ -109,6 +112,24 @@ document.addEventListener("DOMContentLoaded", () => {
                 `Gracias, ${name}. El formulario está listo para conectarse a un servicio de correo.`;
 
             contactForm.reset();
+        });
+    }
+
+
+    /* 
+       6. CONTADOR DE CLICS - FASE 4
+       Incrementa el número mostrado en el H2 cada vez que se hace clic.
+    */
+
+    const numero = document.getElementById("numero");
+    const btnContador = document.getElementById("btn-contador");
+
+    let contador = 0;
+
+    if (numero && btnContador) {
+        btnContador.addEventListener("click", () => {
+            contador++;
+            numero.textContent = contador;
         });
     }
 

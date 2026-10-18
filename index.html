@@ -6,6 +6,8 @@
     <meta name="description" content="Sitio personal de Cristian Hernández: tecnología, triatlón y emprendimiento.">
     <title>Cristian Hernández | Tecnología, Triatlón y Emprendimiento</title>
 
+    <!-- AOS: estilos para animaciones al hacer scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
@@ -30,7 +32,7 @@
 
         <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
             <a href="#inicio">Inicio</a>
-            <a href="#profesional">Profesional</a>
+            <a href="#experiencia">Profesional</a>
             <a href="#triatlon">Triatlón</a>
             <a href="#emprendimiento">Emprendimiento</a>
             <a href="#contacto" class="nav-cta">Contacto</a>
@@ -42,9 +44,9 @@
         <!-- PRINCIPAL -->
         <section class="hero section" id="inicio">
             <div class="hero-copy reveal">
-                <p class="eyebrow">PROJECT & SALES MANAGER · TRIATLETA · EMPRENDEDOR</p>
+                <p class="eyebrow" data-aos="fade-down" data-aos-duration="700">PROJECT & SALES MANAGER · TRIATLETA · EMPRENDEDOR</p>
 
-                <h1>
+                <h1 data-aos="fade-up" data-aos-duration="900">
                     Construyo sistemas.<br>
                     Entreno personas.<br>
                     Ejecuto negocios.
@@ -78,7 +80,7 @@
 
                 <div class="photo-fallback" id="photo-fallback" aria-hidden="true">
                     <span>CH</span>
-                    <p>Agrega tu fotografía en <strong>img/perfil.jpg</strong></p>
+                    <p>Agrega tu fotografía en <strong>img/perfil.png</strong></p>
                 </div>
             </div>
         </section>
@@ -88,7 +90,7 @@
         <section class="section facets" aria-labelledby="facetas-title">
             <div class="section-heading reveal">
                 <p class="eyebrow">TRES FACETAS, UNA MISMA FORMA DE TRABAJAR</p>
-                <h2 id="facetas-title">Estrategia, disciplina y ejecución.</h2>
+                <h2 id="facetas-title" data-aos="fade-up" data-aos-duration="800">Estrategia, disciplina y ejecución.</h2>
             </div>
 
             <div class="facet-grid">
@@ -132,7 +134,7 @@
         <section class="section split-section" id="experiencia">
             <div class="section-heading reveal">
                 <p class="eyebrow">EXPERIENCIA LABORAL</p>
-                <h2>Transformación tecnológica con enfoque de negocio.</h2>
+                <h2 data-aos="fade-up" data-aos-duration="800">Transformación tecnológica con enfoque de negocio.</h2>
             </div>
 
             <div class="experience-layout">
@@ -193,7 +195,7 @@
             <div class="sports-banner reveal">
                 <div>
                     <p class="eyebrow">TRIATLÓN Y COACHING</p>
-                    <h2>El rendimiento también se diseña.</h2>
+                    <h2 data-aos="fade-up" data-aos-duration="800">El rendimiento también se diseña.</h2>
                     <p>
                         Mi enfoque combina experiencia como atleta, análisis de datos,
                         estructura de entrenamiento y adaptación individual.
@@ -243,7 +245,7 @@
         <section class="section entrepreneurship-section" id="emprendimiento">
             <div class="section-heading reveal">
                 <p class="eyebrow">EMPRENDIMIENTO</p>
-                <h2>Operar también es estrategia.</h2>
+                <h2 data-aos="fade-up" data-aos-duration="800">Operar también es estrategia.</h2>
             </div>
 
             <div class="business-grid">
@@ -286,11 +288,26 @@
         </section>
 
 
+        <!-- CONTADOR JAVASCRIPT -->
+        <section class="section counter-section" id="contador">
+            <div class="counter-box" data-aos="zoom-in" data-aos-duration="700">
+                <p class="eyebrow">INTERACCIÓN JAVASCRIPT</p>
+                <h2 id="numero">0</h2>
+                <button id="btn-contador" class="button button-dark" type="button">
+                    Hacer clic
+                </button>
+                <p class="counter-note">
+                    Cada clic incrementa el contador en una unidad.
+                </p>
+            </div>
+        </section>
+
+
         <!-- CONTACTO -->
         <section class="contact-section" id="contacto">
             <div class="contact-copy reveal">
                 <p class="eyebrow eyebrow-light">CONTACTO</p>
-                <h2>¿Construimos algo?</h2>
+                <h2 data-aos="fade-up" data-aos-duration="800">¿Construimos algo?</h2>
                 <p>
                     Tecnología, coaching, alianzas o negocios.
                     Si alguno de estos mundos conecta contigo, hablemos.
@@ -327,6 +344,16 @@
         <span>© <span id="year"></span> Cristian Hernández</span>
         <a href="#inicio">Volver arriba ↑</a>
     </footer>
+
+    <!-- AOS: librería JavaScript e inicialización -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 80
+        });
+    </script>
 
 </body>
 </html>
